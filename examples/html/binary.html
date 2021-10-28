@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Tensorflow.js-->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <!--TFVIS-->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis"></script>
+    <!--Chart JS-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title> Binary Classification </title>
+</head>
+<body>
+    <div class="container">
+        <div class="card-body">
+            <h1> Binary Classifier using TensorFlow.js </h1>
+        </div>
+        
+        <!-- Chart Data -->
+        <div class="row" >    
+            <div class="col-5">
+                <canvas id="trainset" height="400" width="400"></canvas>
+                    <figcaption class="text-center">Data Train</figcaption>
+            </div>
+            <div class="col-5">
+                <canvas id="valset" height="400" width="400"></canvas>
+                    <figcaption class="text-center">Data Validation</figcaption>
+            </div>
+        </div><hr>
+
+                    
+        <!-- Train and Test -->
+        <div class="row">
+            
+            <!-- Train Col -->
+            <div class="col-5">
+                <h3>Train Model</h3>    
+                <div class="form-inline form-group">
+                    <label class="col-3">Hidden Neuron:</label>
+                    <input id='num-hid' class="form-control" type="text" value="20">
+                </div>    
+                <div class="form-inline form-group">
+                    <label class="col-3">Learning Rate:</label>
+                    <input id='lr' class="form-control" type="text" value="0.1">
+                </div>    
+                <div class="form-inline form-group">
+                    <label class="col-3">Max Epoch:</label>
+                    <input id='epoch' class="form-control" type="text" value="100">
+                </div>    
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary" id="init-btn">Initialize Model</button>
+                    <button type="button" class="btn btn-primary" id="train-btn" disabled>Train Model</button>
+                </div>
+                <h4><span id="eval-train" class="badge bg-info"></span></h4>
+                <h4><span id="eval-val" class="badge bg-info"></span></h4>    
+            </div>
+        
+
+            <!-- Test Col -->
+            <div class="col-5" id="testing">
+            
+                <h3>Test New Data</h3>
+                    <div class="form-inline form-group">
+                        <label class="col-2">X :</label>
+                        <input id='input-x' class="form-control" type="text">
+                    </div>
+            
+                <div class="form-inline form-group">
+                    <label class="col-2">Y :</label>
+                    <input id='input-y' class="form-control" type="text">
+                </div>
+            
+                <div class="form-inline form-group">
+                    <button type="button" class="btn btn-primary" id="test-btn" disabled>Test Model</button>
+                </div>
+            
+                <h4><span id="class-pred" class="badge bg-success"></span></h4>    
+        
+            </div>
+        
+        </div><hr>
+
+        <!-- Training Progress -->
+        <div class="card-body" id="training-progress">
+            <h3>Training Progress</h3>                
+                <div class="row">
+                    <div class="col-5 border-right">
+                        <div id="loss-graph"></div>
+                            <figcaption class="text-center">Loss</figcaption>
+                    </div>
+                    <div class="col-5">
+                        <div id="acc-graph"></div>
+                            <figcaption class="text-center">Accuracy</figcaption>
+                    </div>    
+                </div><br>    
+                <h4><span id="is-training" class="badge"></span></h4><hr>
+        </div>
+    </div>
+    <script src="/examples/js/binary.js"></script>
+</body>
+</html>
