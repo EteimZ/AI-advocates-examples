@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" >
+         <head>
+           <title>Object detection </title>
+          <link rel="stylesheet" href="{{url_for('static', filename='object.css')}}">
+        </head>
+     
+             <body>
+               <h1> Object detection </h1>
+               <p> Object detection using
+                    <b>SSD</b> model, which was trained on the <b><a href="https://cocodataset.org/">COCO</a> </b> dataset. </p>
+                
+                <p> Upload an image detect all the objects within the image </p>
+                
+                <input class="btn btn-primary" type='file' />
+                <h2><p id = 'ld' > </p></h2>
+               <br>
+               <div id="liveView" class="camView">
+                <img id="myImg" src=""  width="640" height="480" >
+               </div>
+
+               
+              <!-- Import TensorFlow.js library -->
+              <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js" type="text/javascript"></script>
+              <!-- Load the coco-ssd model to use to recognize things in images -->
+              <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+        
+              <script src="{{url_for('static', filename='object.js')}}"></script>
+         </body> 
+</html>

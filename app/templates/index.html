@@ -21,7 +21,7 @@
                 <h3 class="text-center"> Linear Regression </h3>
                 <div class="card-body">
                     <p> Linear regression is a machine learning algorithm were the aim is to find a best fit line.</p>
-                    <a href="./linear.html"><button class="btn btn-primary">example</button></a>
+                    <a href="/linear"><button class="btn btn-primary">example</button></a>
                 </div>
             </div>
         
@@ -29,29 +29,20 @@
                 <h3 class="text-center">Binary Classification</h3>
                 <div class="card-body">
                     <p> In binary classification the aim is to classify if an object belongs to a particular class or the other. </p>
-                    <a href="./binary.html"><button class="btn btn-primary" >example</button></a>
+                    <a href="{{ url_for('binary')}}"><button class="btn btn-primary" >example</button></a>
                 </div>
             </div>
 
         </div>
 
-        <div class="row justify-content-center">
-
-            <div class="card col-md-4 col-sm-6 mb-3 ms-3">
-                <h3 class="text-center"> Image classification </h3>
-                <div class="card-body">
-                    <p> Image classification involves classifying a particular image using deep learning.</p>
-                    <a href="#"><button class="btn btn-primary" >example</button></a>
-                </div>
-            </div>
-                
-        
+        <div class="row justify-content-center">        
 
             <div class="card col-md-4 col-sm-6 mb-3 ms-3">
                 <h3 class="text-center">Object Detection</h3>
                 <div class="card-body">
                     <p>Object Detection involves localizing the detected images</p>
-                    <button class="btn btn-primary">example</button>
+
+                    <a href="/objectdetect"><button class="btn btn-primary" >example</button></a>
                 </div>
             </div>
     
